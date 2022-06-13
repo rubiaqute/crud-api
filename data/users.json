@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "username": "Anna Paulig",
+    "age": 27,
+    "hobbies": ["fishing", "skiing"]
+  },
+  {
+    "id": "2",
+    "username": "Ivan Oblomov",
+    "age": 56,
+    "hobbies": ["skating", "history"]
+  },
+  {
+    "id": "3",
+    "username": "Inga Baranets",
+    "age": 33,
+    "hobbies": ["programming", "yoga", "travelling"]
+  },
+  {
+    "id": "4",
+    "username": "Andey Somov",
+    "age": 20,
+    "hobbies": []
+  },
+  {
+    "id": "5",
+    "username": "Marina Lung",
+    "age": 44,
+    "hobbies": ["modern art", "gardening"]
+  }
+]
