@@ -27,3 +27,13 @@ export const create = async (user) => {
     resolve(newUser);
   });
 };
+
+export const update = async (id, user) => {
+  return new Promise((resolve, reject) => {
+    const index = users.findIndex((el) => el.id === id);
+    users[index] = { id, ...user };
+    console.log(users[index]);
+    writeToFile("./data/users.json", users);
+    resolve(users[index]);
+  });
+};

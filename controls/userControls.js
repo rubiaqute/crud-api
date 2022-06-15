@@ -51,3 +51,32 @@ export const createUser = async (req, res) => {
     console.log(e);
   }
 };
+
+export const updateUser = async (req, res, id) => {
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "User is not found" }));
+    } else {
+      let body = "";
+      req.on("data", (chunk) => {
+        body += chunk.toString();
+      });
+      req.on("end", async () => {
+        const { username, age, hobbies } = JSON.parse(body);
+        const userData = {
+          username: username || user.username,
+          age: age || user.age,
+          hobbies: hobbies || user.hobbies,
+        };
+        const updatedUser = await User.update(id, userData);
+
+        res.writeHead(201, { "Content-Type": "application/json" });
+        return res.end(JSON.stringify(updatedUser));
+      });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
