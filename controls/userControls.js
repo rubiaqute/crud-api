@@ -80,3 +80,21 @@ export const updateUser = async (req, res, id) => {
     console.log(e);
   }
 };
+export const deleteUser = async (req, res, id) => {
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "User is not found" }));
+    } else {
+      await User.remove(id);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({ message: `User ${id} is deleted successfully` })
+      );
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};

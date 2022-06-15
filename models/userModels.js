@@ -2,7 +2,7 @@ import { readFile } from "fs/promises";
 import { v4 as uuid } from "uuid";
 import { writeToFile } from "../helper.js";
 
-const users = JSON.parse(
+let users = JSON.parse(
   await readFile(new URL("./../data/users.json", import.meta.url))
 );
 
@@ -32,8 +32,15 @@ export const update = async (id, user) => {
   return new Promise((resolve, reject) => {
     const index = users.findIndex((el) => el.id === id);
     users[index] = { id, ...user };
-    console.log(users[index]);
     writeToFile("./data/users.json", users);
     resolve(users[index]);
+  });
+};
+
+export const remove = async (id) => {
+  return new Promise((resolve, reject) => {
+    users = users.filter((el) => el.id !== id);
+    writeToFile("./data/users.json", users);
+    resolve("");
   });
 };
