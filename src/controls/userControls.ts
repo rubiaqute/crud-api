@@ -45,7 +45,6 @@ export const createUser = async (req: http.IncomingMessage, res: http.ServerResp
     });
     req.on("end", async () => {
       const { username, age, hobbies } = JSON.parse(body);
-      console.log(username, age, hobbies)
       if (username && age && hobbies) {
         const user = {
           username,
