@@ -36,7 +36,7 @@ const api = http.createServer((req, res) => {
     deleteUser(req, res, id);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ message: "Rote not found" }));
+    res.end(JSON.stringify({ message: "Route not found" }));
   }
 });
 api.listen(PORT, () => console.log(`Your port is ${PORT}`));

@@ -1,1 +1,38 @@
-[{"id":"3","username":"Inga Baranets","age":33,"hobbies":["programming","yoga","travelling"]},{"id":"4","username":"Andey Somov","age":20,"hobbies":[]},{"id":"5","username":"Marina Lung","age":44,"hobbies":["modern art","gardening"]},{"id":"4076e5ff-f839-4571-8638-926f6af1df86","username":"Anna Paulig","age":86,"hobbies":["jumping"]},{"id":"efac048c-4901-47cc-a32c-527b80d2d2e4","username":"Ivan Oblomov","age":56,"hobbies":["jumping"]},{"id":"2c9b8154-c71e-42f0-89bf-bfafba135698","username":"Foma Akvinskiy","age":45,"hobbies":["singing"]}]
+[
+  {
+    "id": "4076e5ff-f839-4571-8638-926f6af1df86",
+    "username": "Anna Paulig",
+    "age": 86,
+    "hobbies": ["jumping"]
+  },
+  {
+    "id": "efac048c-4901-47cc-a32c-527b80d2d2e4",
+    "username": "Ivan Oblomov",
+    "age": 56,
+    "hobbies": ["jumping"]
+  },
+  {
+    "id": "2c9b8154-c71e-42f0-89bf-bfafba135698",
+    "username": "Foma Akvinskiy",
+    "age": 45,
+    "hobbies": ["singing"]
+  },
+  {
+    "id": "fcfb0aed-a509-4539-a7ee-e064a3c3ce5a",
+    "username": "Inga Baranets",
+    "age": 33,
+    "hobbies": ["programming", "yoga", "travelling"]
+  },
+  {
+    "id": "49cb48d7-374d-4eff-b7c8-72b359e7e71c",
+    "username": "Andey Somov",
+    "age": 20,
+    "hobbies": []
+  },
+  {
+    "id": "c467149c-d06f-47aa-8b3e-53260d53c882",
+    "username": "Marina Lung",
+    "age": 44,
+    "hobbies": ["modern art", "gardening"]
+  }
+]
