@@ -7,7 +7,7 @@ import {
   createUser,
   updateUser,
   deleteUser,
-} from "./controls/userControls.js";
+} from "./controls/userControls";
 
 const PORT = process.env.PORT;
 

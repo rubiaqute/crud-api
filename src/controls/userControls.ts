@@ -1,6 +1,7 @@
-import * as User from "./../models/userModels.js";
+import * as User from "../models/userModels";
+import * as http from "http";
 
-export const getUsers = async (req, res) => {
+export const getUsers = async (req: http.IncomingMessage, res: http.ServerResponse) => {
   try {
     const users = await User.findAll();
 
@@ -12,13 +13,13 @@ export const getUsers = async (req, res) => {
   }
 };
 
-export const getUser = async (req, res, id) => {
+export const getUser = async (req: http.IncomingMessage, res: http.ServerResponse, id: string) => {
   try {
     const user = await User.findById(id);
 
     if (!user) {
       res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ messae: "User is not found" }));
+      res.end(JSON.stringify({ message: "User is not found" }));
     } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.write(JSON.stringify(user));
@@ -29,7 +30,7 @@ export const getUser = async (req, res, id) => {
   }
 };
 
-export const createUser = async (req, res) => {
+export const createUser = async (req: http.IncomingMessage, res: http.ServerResponse) => {
   try {
     let body = "";
     req.on("data", (chunk) => {
@@ -52,9 +53,9 @@ export const createUser = async (req, res) => {
   }
 };
 
-export const updateUser = async (req, res, id) => {
+export const updateUser = async (req: http.IncomingMessage, res: http.ServerResponse, id: string) => {
   try {
-    const user = await User.findById(id);
+    const user: User.IUser = await User.findById(id);
     if (!user) {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ message: "User is not found" }));
@@ -80,7 +81,7 @@ export const updateUser = async (req, res, id) => {
     console.log(e);
   }
 };
-export const deleteUser = async (req, res, id) => {
+export const deleteUser = async (req: http.IncomingMessage, res: http.ServerResponse, id: string) => {
   try {
     const user = await User.findById(id);
 

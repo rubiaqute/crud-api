@@ -1,10 +1,15 @@
 import { readFile } from "fs/promises";
 import { v4 as uuid } from "uuid";
-import { writeToFile } from "../helper.js";
+import { writeToFile } from "./../helper";
 
-let users = JSON.parse(
-  await readFile(new URL("./../data/users.json", import.meta.url))
-);
+
+export interface IUser {
+  id?: string,
+  username: string,
+  age: number,
+  hobbies: string[]
+}
+let users: IUser[] = require("./../data/users.json")
 
 export const findAll = async () => {
   return new Promise((resolve, reject) => {
@@ -12,14 +17,14 @@ export const findAll = async () => {
   });
 };
 
-export const findById = async (id) => {
+export const findById = async (id: string): Promise<IUser> => {
   return new Promise((resolve, reject) => {
-    const user = users.find((el) => el.id === id);
+    const user = users.find((el: IUser) => el.id === id);
     resolve(user);
   });
 };
 
-export const create = async (user) => {
+export const create = async (user: IUser) => {
   return new Promise((resolve, reject) => {
     const newUser = { id: uuid(), ...user };
     users.push(newUser);
@@ -28,18 +33,18 @@ export const create = async (user) => {
   });
 };
 
-export const update = async (id, user) => {
+export const update = async (id: string, user: IUser) => {
   return new Promise((resolve, reject) => {
-    const index = users.findIndex((el) => el.id === id);
+    const index = users.findIndex((el: IUser) => el.id === id);
     users[index] = { id, ...user };
     writeToFile("./data/users.json", users);
     resolve(users[index]);
   });
 };
 
-export const remove = async (id) => {
+export const remove = async (id: string) => {
   return new Promise((resolve, reject) => {
-    users = users.filter((el) => el.id !== id);
+    users = users.filter((el: IUser) => el.id !== id);
     writeToFile("./data/users.json", users);
     resolve("");
   });
